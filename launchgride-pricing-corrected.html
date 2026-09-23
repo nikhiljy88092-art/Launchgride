@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LaunchGride - Custom Android and Business App Development Plans">
+<title>LaunchGride | Ideas Into Apps</title>
+<style>
+:root{--bg:#f5f7fb;--dark:#0b1020;--primary:#6d5dfc;--text:#111827;--muted:#687083;--card:#fff;--green:#20c76b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{text-decoration:none}
+header{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.96);backdrop-filter:blur(10px);color:#fff;padding:15px 6%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:900}.logo span{color:#7d70ff}
+nav a{color:#dfe3f2;margin-left:22px;font-size:14px;font-weight:600}
+nav a:hover{color:#fff}
+.hero{background:radial-gradient(circle at 80% 20%,#5147a8 0,#252b55 25%,#0b1020 65%);color:#fff;text-align:center;padding:80px 20px 75px}
+.badge{display:inline-block;background:#6d5dfc;padding:7px 15px;border-radius:30px;font-size:12px;font-weight:800;letter-spacing:.4px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.1;margin-bottom:18px}.hero h1 span{color:#8d82ff}
+.hero p{max-width:720px;margin:auto;color:#d9dced;font-size:17px}
+.hero-buttons{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 21px;border-radius:10px;font-weight:800;font-size:14px}
+.btn-primary{background:#fff;color:#151a30}.btn-primary:hover{background:#eee}
+.btn-purple{background:var(--primary);color:#fff}.btn-purple:hover{background:#5849e8}
+.container{max-width:1150px;margin:auto;padding:65px 20px}
+.section-title{text-align:center;margin-bottom:32px}
+.section-title h2{font-size:clamp(27px,4vw,36px);margin-bottom:7px}.section-title p{color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid #e5e8f0;border-radius:19px;padding:27px;box-shadow:0 8px 28px rgba(20,30,60,.06);position:relative}
+.card.featured{border:2px solid var(--primary);transform:translateY(-6px)}
+.ribbon{position:absolute;right:15px;top:15px;background:var(--primary);color:#fff;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:900}
+.card h3{font-size:21px;margin-bottom:8px}.price{font-size:32px;font-weight:900;margin:10px 0}.price small{font-size:12px;color:var(--muted);font-weight:500}
+.card .desc{color:var(--muted);font-size:14px;min-height:45px}
+.card ul{list-style:none;margin:18px 0}.card li{font-size:14px;margin:9px 0}.card li:before{content:"✓";color:#18a957;font-weight:900;margin-right:9px}
+.card .btn{display:block;text-align:center;width:100%;margin-top:16px}
+.note{text-align:center;color:#6b7280;font-size:13px;margin-top:20px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature-box{background:#fff;border-radius:17px;padding:25px;border:1px solid #e6e9f0;box-shadow:0 7px 25px rgba(20,30,60,.05)}
+.feature-icon{font-size:32px;margin-bottom:10px}.feature-box h3{font-size:18px;margin-bottom:7px}.feature-box p{font-size:13px;color:var(--muted);margin-bottom:12px}
+.feature-box ul{list-style:none}.feature-box li{font-size:13px;margin:7px 0}.feature-box li:before{content:"✓";color:#18a957;font-weight:900;margin-right:7px}
+.system{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.system-box{background:#10162a;color:#fff;border-radius:18px;padding:28px;text-align:center}.system-box .feature-icon{font-size:38px}.system-box p{color:#bdc4d8;font-size:13px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{background:#fff;padding:23px;border-radius:16px;text-align:center;border:1px solid #e7eaf0}.num{font-size:27px;font-weight:900;color:var(--primary);margin-bottom:5px}.step p{font-size:13px;color:var(--muted)}
+.faq{max-width:850px;margin:auto}.faq details{background:#fff;border:1px solid #e4e7ee;border-radius:13px;margin:10px 0;padding:17px 19px}.faq summary{font-weight:800;cursor:pointer}.faq p{color:var(--muted);font-size:14px;padding-top:10px}
+.cta{background:linear-gradient(135deg,#151a30,#302a69);color:#fff;border-radius:25px;text-align:center;padding:52px 20px}.cta h2{font-size:34px;margin-bottom:8px}.cta p{color:#cbd0df;margin-bottom:22px}
+.whatsapp{display:inline-block;background:var(--green);color:#fff;padding:14px 24px;border-radius:11px;font-weight:900}
+footer{background:#0b1020;color:#aeb5c9;text-align:center;padding:28px 15px;font-size:13px}footer strong{color:#fff}
+@media(max-width:850px){.plans,.feature-grid,.system{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.card.featured{transform:none}}
+@media(max-width:600px){header{padding:14px 18px}nav{display:none}.hero{padding:62px 18px}.container{padding:48px 16px}.plans,.feature-grid,.system,.process{grid-template-columns:1fr}.hero p{font-size:15px}.card.featured{transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🚀 Launch<span>Gride</span></div>
+  <nav>
+    <a href="#plans">Plans</a>
+    <a href="#features">Features</a>
+    <a href="#why">Why Us</a>
+    <a href="#businesses">Businesses</a>
+    <a href="#compare">Compare</a>
+    <a href="#system">3 Systems</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="badge">IDEAS INTO APPS 🚀</div>
+  <h1>Turn Your Business Into<br><span>A Mobile App</span></h1>
+  <p>Get a professional Android business app with your own name, logo, branding, products/services and management system.</p>
+  <div class="hero-buttons">
+    <a class="btn btn-primary" href="#plans">View Plans</a>
+    <a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20a%20Free%20Demo.">Get FREE Demo — ₹0</a>
+  </div>
+</section>
+
+<section class="container" id="plans">
+<div class="section-title"><h2>Simple & Transparent Plans</h2><p>Start with a free demo, then choose what your business needs.</p></div>
+
+<div style="max-width:900px;margin:0 auto 28px;background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:20px;text-align:center">
+  <div style="font-size:24px;margin-bottom:6px">📌</div>
+  <h3 style="margin-bottom:6px">Important Pricing Note</h3>
+  <p style="color:#7c4a03;font-size:14px">
+    <strong>₹9,999 = Full App Development charge only.</strong>
+    Any additional features, integrations, custom changes, Annual Service, Play Store Publishing
+    or other optional plans/services will be charged separately as applicable.
+  </p>
+</div>
+
+<div class="plans">
+
+<div class="card">
+<h3>Free Demo</h3><div class="price">₹0</div>
+<p class="desc">See your business concept as a mobile app before making a decision.</p>
+<ul><li>Demo App Preview</li><li>Basic Branding Preview</li><li>Business Concept Preview</li><li>No Commitment</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20a%20Free%20Demo.">Get Free Demo</a>
+</div>
+
+<div class="card">
+<h3>Advance Demo</h3><div class="price">₹299 <small>one-time</small></div>
+<p class="desc">A more customized preview with your branding and advanced feature experience.</p>
+<ul><li>Custom Branding</li><li>More Customization</li><li>Advanced Feature Preview</li><li>Working Demo Experience</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20the%20Advance%20Demo%20for%20%E2%82%B9299.">Choose Advance Demo</a>
+</div>
+
+<div class="card featured">
+<div class="ribbon">POPULAR</div>
+<h3>Full App Development</h3><div class="price">₹9,999 <small>one-time</small></div>
+<p class="desc">Complete app development charge. Customer App + Delivery App + Admin Panel are included in the development scope.</p>
+<ul><li>Customer App</li><li>Delivery App</li><li>Admin Panel/App</li><li>Custom Branding & Design</li><li>Business Management Features</li><li>Basic agreed features</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20Full%20App%20Development%20for%20%E2%82%B99%2C999.">Start Development</a>
+</div>
+
+<div class="card">
+<h3>Annual Service — Basic</h3><div class="price">₹2,500 <small>+ GST / year</small></div>
+<p class="desc">Optional service plan after app development. Charged separately.</p>
+<ul><li>App Support</li><li>Maintenance</li><li>Basic Updates</li><li>Technical Assistance</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20the%20Annual%20Service%20Basic%20plan.">Enquire Now</a>
+</div>
+
+<div class="card featured">
+<div class="ribbon">BEST DEAL</div>
+<h3>Annual Service — Advanced</h3><div class="price">₹4,999 <small>+ GST / year</small></div>
+<p class="desc">Optional advanced service plan after app development. Charged separately.</p>
+<ul><li>Advanced Updates</li><li>Maintenance & Support</li><li>Additional Features</li><li>Priority Support</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20the%20Annual%20Service%20Advanced%20plan.">Choose Advanced</a>
+</div>
+
+<div class="card">
+<h3>Play Store Publishing</h3><div class="price">₹6,000 <small>one-time</small></div>
+<p class="desc">Optional Play Store publishing service. Charged separately from app development.</p>
+<ul><li>Play Store Publishing</li><li>Publishing Assistance</li><li>App Submission Support</li><li>Google Play Console subscription separate</li></ul>
+<a class="btn btn-purple" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20need%20Play%20Store%20Publishing.">Enquire Now</a>
+</div>
+
+</div>
+<p class="note"><strong>Important:</strong> ₹9,999 is the one-time Full App Development charge only.
+Annual Service, Play Store Publishing, additional features, integrations, custom changes and other optional services are charged separately as applicable.</p>
+</section>
+
+<section class="container" id="features">
+<div class="section-title"><h2>Powerful Business Features</h2><p>Features can be customized according to your business requirements.</p></div>
+<div class="feature-grid">
+
+<div class="feature-box"><div class="feature-icon">👤</div><h3>Customer App</h3><p>A simple experience for your customers.</p><ul>
+<li>Business profile & branding</li><li>Products / services listing</li><li>Categories</li><li>Product/service details</li><li>Cart & order placement</li><li>Order status</li><li>Customer profile</li><li>Address management</li><li>Push notifications</li></ul></div>
+
+<div class="feature-box"><div class="feature-icon">🚚</div><h3>Delivery App</h3><p>Manage deliveries in one place.</p><ul>
+<li>Delivery partner login</li><li>Assigned orders</li><li>Customer & order details</li><li>Delivery status updates</li><li>Delivery management</li><li>Order progress</li></ul></div>
+
+<div class="feature-box"><div class="feature-icon">🛠️</div><h3>Admin Panel</h3><p>Control your business from one dashboard.</p><ul>
+<li>Dashboard</li><li>Product/service management</li><li>Category management</li><li>Order management</li><li>Customer management</li><li>Delivery partner management</li><li>Order status control</li><li>Notifications</li><li>Business settings</li></ul></div>
+
+<div class="feature-box"><div class="feature-icon">🎨</div><h3>Custom Branding</h3><p>Your app, your identity.</p><ul>
+<li>Business name</li><li>Logo</li><li>Brand colors</li><li>Custom design</li><li>Business-specific content</li></ul></div>
+
+<div class="feature-box"><div class="feature-icon">🔔</div><h3>Notifications</h3><p>Keep customers and business users updated.</p><ul>
+<li>Order notifications</li><li>Status updates</li><li>Business announcements</li><li>Push notification support</li></ul></div>
+
+<div class="feature-box"><div class="feature-icon">📱</div><h3>Android App</h3><p>A dedicated mobile experience for your business.</p><ul>
+<li>Android application</li><li>Business branding</li><li>App publishing option</li><li>Ongoing service options</li></ul></div>
+
+</div>
+</section>
+
+<section class="container" id="system">
+<div class="section-title"><h2>One Business. Three Systems. 🚀</h2><p>A complete setup for businesses that need customers, deliveries and management.</p></div>
+<div class="system">
+<div class="system-box"><div class="feature-icon">👤</div><h3>Customer App</h3><p>Customers browse products/services, manage their profile and place orders.</p></div>
+<div class="system-box"><div class="feature-icon">🚚</div><h3>Delivery App</h3><p>Delivery partners see assigned orders and manage delivery status.</p></div>
+<div class="system-box"><div class="feature-icon">🛠️</div><h3>Admin Panel</h3><p>Business owners manage products, orders, customers and delivery operations.</p></div>
+</div>
+</section>
+
+<section class="container">
+<div class="section-title"><h2>How It Works</h2><p>Simple process from idea to app.</p></div>
+<div class="process">
+<div class="step"><div class="num">01</div><h3>Free Demo</h3><p>See the basic concept for your business.</p></div>
+<div class="step"><div class="num">02</div><h3>Advance Demo</h3><p>Get more customization and feature preview for ₹299.</p></div>
+<div class="step"><div class="num">03</div><h3>Development</h3><p>Complete app development for ₹9,999 one-time.</p></div>
+<div class="step"><div class="num">04</div><h3>Launch</h3><p>Publish your app and start serving customers.</p></div>
+</div>
+</section>
+
+
+<!-- EXTRA SALES SECTIONS -->
+<section class="container" id="why">
+<div class="section-title">
+  <h2>Why Choose LaunchGride? 🚀</h2>
+  <p>Built to help local businesses move from traditional selling to digital business.</p>
+</div>
+<div class="feature-grid">
+  <div class="feature-box"><div class="feature-icon">💰</div><h3>Affordable Plans</h3><p>Start with a ₹0 Free Demo and choose a plan according to your business needs.</p></div>
+  <div class="feature-box"><div class="feature-icon">🎨</div><h3>Your Own Branding</h3><p>Your business name, logo, colors and content can be used in your app.</p></div>
+  <div class="feature-box"><div class="feature-icon">📱</div><h3>Complete App System</h3><p>Customer App, Delivery App and Admin Panel in one business ecosystem.</p></div>
+  <div class="feature-box"><div class="feature-icon">🧩</div><h3>Business Customization</h3><p>Features and screens can be customized according to your business requirements.</p></div>
+  <div class="feature-box"><div class="feature-icon">👨‍💻</div><h3>Support & Updates</h3><p>Annual service options are available for maintenance, updates and support.</p></div>
+  <div class="feature-box"><div class="feature-icon">👀</div><h3>See Before You Decide</h3><p>Check the Free Demo first, then choose whether you want to move forward.</p></div>
+</div>
+</section>
+
+<section class="container" id="businesses">
+<div class="section-title">
+  <h2>Apps For Different Businesses 🏢</h2>
+  <p>LaunchGride can create customized app solutions for different business types.</p>
+</div>
+<div class="feature-grid">
+  <div class="feature-box"><div class="feature-icon">🍔</div><h3>Restaurants</h3><p>Menu, orders, customers and delivery management.</p></div>
+  <div class="feature-box"><div class="feature-icon">🛒</div><h3>Grocery Stores</h3><p>Products, categories, orders and delivery workflow.</p></div>
+  <div class="feature-box"><div class="feature-icon">💇</div><h3>Salons</h3><p>Services, customer management and business information.</p></div>
+  <div class="feature-box"><div class="feature-icon">💊</div><h3>Pharmacies</h3><p>Product catalog and customer/order management where applicable.</p></div>
+  <div class="feature-box"><div class="feature-icon">🏨</div><h3>Hotels</h3><p>Services, information and customer interaction features.</p></div>
+  <div class="feature-box"><div class="feature-icon">📚</div><h3>Coaching Centers</h3><p>Institute information, students and communication features.</p></div>
+  <div class="feature-box"><div class="feature-icon">🏋️</div><h3>Gyms & Fitness</h3><p>Business information, services and customer communication.</p></div>
+  <div class="feature-box"><div class="feature-icon">🛍️</div><h3>Retail Stores</h3><p>Product catalog, customer experience and order management.</p></div>
+  <div class="feature-box"><div class="feature-icon">➕</div><h3>Other Businesses</h3><p>Tell us your business requirements and we can discuss a suitable app setup.</p></div>
+</div>
+</section>
+
+<section class="container" id="portfolio">
+<div class="section-title">
+  <h2>Demo & Portfolio 📱</h2>
+  <p>Show visitors what your app ecosystem can look like.</p>
+</div>
+<div class="system">
+  <div class="system-box"><div class="feature-icon">👤</div><h3>Customer App</h3><p>Modern customer-facing mobile experience with your branding.</p></div>
+  <div class="system-box"><div class="feature-icon">🚚</div><h3>Delivery App</h3><p>Dedicated delivery workflow for assigned orders and status updates.</p></div>
+  <div class="system-box"><div class="feature-icon">🛠️</div><h3>Admin Panel</h3><p>Central dashboard to manage your business operations.</p></div>
+</div>
+<p class="note">More demo screenshots and client projects can be added here as your portfolio grows.</p>
+</section>
+
+<section class="container" id="compare">
+<div class="section-title">
+  <h2>Which Option Is Right For You?</h2>
+  <p>Compare the available stages before starting full development.</p>
+</div>
+<div style="overflow-x:auto;background:#fff;border-radius:18px;border:1px solid #e5e8f0;box-shadow:0 8px 28px rgba(20,30,60,.05)">
+<table style="width:100%;border-collapse:collapse;min-width:650px;text-align:left">
+<thead>
+<tr style="background:#10162a;color:#fff">
+<th style="padding:16px">Feature</th><th style="padding:16px">Free Demo</th><th style="padding:16px">Advance Demo</th><th style="padding:16px">Full App</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Price</td><td style="padding:14px;border-bottom:1px solid #eee">₹0</td><td style="padding:14px;border-bottom:1px solid #eee">₹299</td><td style="padding:14px;border-bottom:1px solid #eee">₹9,999</td></tr>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Basic Preview</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td></tr>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Custom Branding</td><td style="padding:14px;border-bottom:1px solid #eee">Basic</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td></tr>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Advanced Feature Preview</td><td style="padding:14px;border-bottom:1px solid #eee">—</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td></tr>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Customer App</td><td style="padding:14px;border-bottom:1px solid #eee">Preview</td><td style="padding:14px;border-bottom:1px solid #eee">Preview</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td></tr>
+<tr><td style="padding:14px;border-bottom:1px solid #eee">Delivery App</td><td style="padding:14px;border-bottom:1px solid #eee">Preview</td><td style="padding:14px;border-bottom:1px solid #eee">Preview</td><td style="padding:14px;border-bottom:1px solid #eee">✓</td></tr>
+<tr><td style="padding:14px">Admin Panel</td><td style="padding:14px">Preview</td><td style="padding:14px">Preview</td><td style="padding:14px">✓</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="container">
+<div class="section-title">
+  <h2>Payment & Development Process 💳</h2>
+  <p>A simple step-by-step journey from demo to launch.</p>
+</div>
+<div class="process">
+  <div class="step"><div class="num">01</div><h3>Free Demo</h3><p>₹0 — Check the concept first.</p></div>
+  <div class="step"><div class="num">02</div><h3>Advance Demo</h3><p>Optional ₹299 — Get more customization and feature preview.</p></div>
+  <div class="step"><div class="num">03</div><h3>Full Development</h3><p>₹9,999 one-time — App development charge only.</p></div>
+  <div class="step"><div class="num">04</div><h3>Launch & Service</h3><p>Optional services can be added separately after development.</p></div>
+</div>
+</section>
+
+<section class="container">
+<div class="cta">
+  <h2>Let's Build Your Business App 🚀</h2>
+  <p>Send your business name and logo to get started with a Free Demo.</p>
+  <a class="whatsapp" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20a%20Free%20Demo.%20My%20business%20name%20is%20">💬 Get Free Demo on WhatsApp</a>
+</div>
+</section>
+
+<section class="container" id="faq">
+<div class="section-title"><h2>Frequently Asked Questions</h2><p>Quick answers for business owners.</p></div>
+<div class="faq">
+<details><summary>Can I see a demo before paying for development?</summary><p>Yes. Start with the Free Demo at ₹0. The Advance Demo is also available for ₹299 if you want more customization and a working preview.</p></details>
+<details><summary>What is included in Full App Development?</summary><p>₹9,999 is the one-time Full App Development charge. It covers the agreed development scope, including the Customer App, Delivery App and Admin Panel/App. Additional features, integrations, services and optional plans are charged separately.</p></details>
+<details><summary>Is the Advance Demo compulsory?</summary><p>No. It is optional. You can start with the Free Demo and decide whether you want the Advance Demo before development.</p></details>
+<details><summary>Is Play Store publishing included?</summary><p>Play Store Publishing is an optional separate service for ₹6,000 one-time. Google Play Console subscription is separate where applicable.</p></details>
+<details><summary>Do you provide yearly support?</summary><p>Yes. Annual Service plans are optional and charged separately after development: Basic ₹2,500 + GST/year and Advanced ₹4,999 + GST/year.</p></details>
+<details><summary>Can the app be customized for my business?</summary><p>Yes. Business name, logo, branding, products/services and supported features can be customized according to your requirements.</p></details>
+</div>
+</section>
+
+<section class="container" id="contact">
+<div class="cta">
+<h2>Ready to Build Your Business App? 🚀</h2>
+<p>Start with a FREE Demo. See the concept first, then decide.</p>
+<a class="whatsapp" href="https://wa.me/919572048156?text=Hi%20LaunchGride%2C%20I%20want%20a%20Free%20Demo.">💬 WhatsApp: +91 95720 48156</a>
+</div>
+</section>
+
+<footer>
+<strong>🚀 LaunchGride — Ideas Into Apps</strong><br>
+© 2026 LaunchGride. All rights reserved.
+</footer>
+
+</body>
+</html>
